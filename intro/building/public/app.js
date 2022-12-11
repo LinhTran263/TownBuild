@@ -1,5 +1,6 @@
 window.addEventListener('load',()=>{
     console.log("hellooo");
+    drawHouse();
     let cursor = document.getElementById("cur");
     cursor.addEventListener('mouseenter', function (evt) {
         // console.log("plane");
@@ -37,152 +38,125 @@ window.addEventListener('load',()=>{
     })
 })
 
-fetch("/houses")
-.then(res => res.json())
-.then(data => {
-    console.log(data);
-    let allHouse = data.data;
-    
-    allHouse.forEach((house) => {
-        let asset = document.getElementById("scene_asset");
-
-        let text = document.createElement('a-text');
-        text.setAttribute('height', '50');
-        text.setAttribute('width', '50');
-        text.setAttribute('align', 'center');
-        text.setAttribute('position', {x:0, y:30, z:0.5});
-        text.setAttribute('value', house.house.name);
-        text.setAttribute('opacity', 0);
-        text.id = house.house.type + house.house.name +"text";
-        text.setAttribute('font', 'mozillavr');
-
-        let msg = document.createElement('a-text');
-        msg.setAttribute('value', house.house.msg);
-        msg.setAttribute('align', 'center');
-        msg.setAttribute('height', '50');
-        msg.setAttribute('width', '50');
-        msg.setAttribute('position', {x:0, y:25, z:0.5});
-        msg.id = house.house.type  + house.house.name +"msg";
-        msg.setAttribute('font', 'exo2bold');
-        msg.setAttribute('color', house.house.msgColor);
-
-        if (house.house.type == "#designhouse"){
+function drawHouse(){
+    fetch("/houses")
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        let allHouse = data.data;
+        
+        allHouse.forEach((house) => {
             let asset = document.getElementById("scene_asset");
-            let base = document.createElement('a-box');
-            base.id = house.house.type;
-            base.setAttribute('position', {x:house.posX * 20 - 120, y:0.5, z:house.posY * 20 - 100});
-            base.setAttribute('height', 20);
-            base.setAttribute('width', 10);
-            base.setAttribute('depth', 10);
-            base.setAttribute('color', house.house.baseColor);
-            console.log(house);
-            
-            let roof = document.createElement('a-cone');
-            roof.setAttribute('position', {x:0, y:15, z:0});
-            // roof.setAttribute('scale', {x:100, y:1000, z:1000})
-            roof.setAttribute('radius-bottom', 10);
-            roof.setAttribute('height', 10);
-            roof.setAttribute('color', house.house.roofColor);
-
-            let door = document.createElement('a-box');
-            door.setAttribute('position', {x:0, y:0, z:5});
-            // roof.setAttribute('scale', {x:100, y:1000, z:1000})
-            door.setAttribute('width', 3);
-            door.setAttribute('height', 10);
-            door.setAttribute('color', "#FFF");
-            door.setAttribute('src', "#door")
-
-
-            asset.appendChild(base);
-            base.appendChild(roof);
-            base.appendChild(door);
-            base.appendChild(text);
-            base.appendChild(msg);
-
-            let winlst = ["-2 7 4.5","2 7 4.5","4.5 7 -2","4.5 7 2","-4.5 7 -2","-4.5 7 2"];
-            for (let i = 0; i < winlst.length; i++) {
-                let window = document.createElement('a-box');
-                window.setAttribute('position', winlst[i]);
-                window.setAttribute('scale', {x:2, y:2, z:2})
-                window.setAttribute('color', "#FFF");
-                window.setAttribute('src', "#window");
-                base.appendChild(window);
+    
+            let text = document.createElement('a-text');
+            text.setAttribute('height', '50');
+            text.setAttribute('width', '50');
+            text.setAttribute('align', 'center');
+            text.setAttribute('position', {x:0, y:25, z:0.5});
+            text.setAttribute('value', house.house.name);
+            text.setAttribute('opacity', 0);
+            text.id = house.house.type + house.house.name +"text";
+            text.setAttribute('font', 'mozillavr');
+    
+            let msg = document.createElement('a-text');
+            msg.setAttribute('value', house.house.msg);
+            msg.setAttribute('align', 'center');
+            msg.setAttribute('height', '50');
+            msg.setAttribute('width', '50');
+            msg.setAttribute('position', {x:0, y:30, z:0.5});
+            msg.id = house.house.type  + house.house.name +"msg";
+            msg.setAttribute('font', 'exo2bold');
+            msg.setAttribute('color', house.house.msgColor);
+    
+            if (house.house.type == "#designhouse"){
+                let asset = document.getElementById("scene_asset");
+                let base = document.createElement('a-box');
+                base.id = house.house.type;
+                base.setAttribute('position', {x:house.posX * 20 - 120, y:0.5, z:house.posY * 20 - 100});
+                base.setAttribute('height', 20);
+                base.setAttribute('width', 10);
+                base.setAttribute('depth', 10);
+                base.setAttribute('color', house.house.baseColor);
+                console.log(house);
+                
+                let roof = document.createElement('a-cone');
+                roof.setAttribute('position', {x:0, y:15, z:0});
+                // roof.setAttribute('scale', {x:100, y:1000, z:1000})
+                roof.setAttribute('radius-bottom', 10);
+                roof.setAttribute('height', 10);
+                roof.setAttribute('color', house.house.roofColor);
+    
+                let door = document.createElement('a-box');
+                door.setAttribute('position', {x:0, y:0, z:5});
+                // roof.setAttribute('scale', {x:100, y:1000, z:1000})
+                door.setAttribute('width', 3);
+                door.setAttribute('height', 10);
+                door.setAttribute('color', "#FFF");
+                door.setAttribute('src', "#door")
+    
+    
+                asset.appendChild(base);
+                base.appendChild(roof);
+                base.appendChild(door);
+                base.appendChild(text);
+                base.appendChild(msg);
+    
+                let winlst = ["-2 7 4.5","2 7 4.5","4.5 7 -2","4.5 7 2","-4.5 7 -2","-4.5 7 2"];
+                for (let i = 0; i < winlst.length; i++) {
+                    let window = document.createElement('a-box');
+                    window.setAttribute('position', winlst[i]);
+                    window.setAttribute('scale', {x:2, y:2, z:2})
+                    window.setAttribute('color', "#FFF");
+                    window.setAttribute('src', "#window");
+                    base.appendChild(window);
+                }
             }
-        }
-
-
-        else{
-            let item = document.createElement('a-entity');
-            item.id = house.house.type + house.house.name;
-            // let plane = document.createElement('a-plane');
-            // plane.setAttribute('material', {
-            //     side: 'double',
-            //     color: '#EF2D5E',
-            //     opacity: '0.5',
-            //     transparent: 'true'
-            // })
-            // plane.setAttribute('width', '20');
-            // plane.setAttribute('height', '10');
-            // plane.id = house.house.type +"plane";
-
-            // plane.setAttribute('position', {x:0, y:15, z:10});
-            // plane.setAttribute('material', {opacity: 0});
-            item.setAttribute('gltf-model', house.house.type);
-            item.setAttribute('position', {x:house.posX * 20 - 100, y:0.5, z:house.posY * 20 - 80});
-            if (house.house.type =="#slumhouse"){
-                // plane.setAttribute('position', {x:0, y:15, z:0});
-                item.setAttribute('scale', {x:1.5, y:1.5, z:1.5});
-                item.setAttribute('position', {x:0 * 20 - 100, y:0.5, z:house.posY * 20 - 80});
-                text.setAttribute('position', {x:0, y:6, z:0.5});
-                text.setAttribute('height', '20');
-                text.setAttribute('width', '20');
-                msg.setAttribute('height', '20');
-                msg.setAttribute('width', '20');
-                msg.setAttribute('position', {x:0, y:8, z:0.5});
+    
+    
+            else{
+                let item = document.createElement('a-entity');
+                item.id = house.house.type + house.house.name;
+                item.setAttribute('gltf-model', house.house.type);
+                item.setAttribute('position', {x:house.posX * 20 - 100, y:0.5, z:house.posY * 20 - 80});
+                if (house.house.type =="#slumhouse"){
+                    item.setAttribute('scale', {x:1.5, y:1.5, z:1.5});
+                    text.setAttribute('position', {x:0, y:6, z:0.5});
+                    text.setAttribute('height', '20');
+                    text.setAttribute('width', '20');
+                    msg.setAttribute('height', '20');
+                    msg.setAttribute('width', '20');
+                    msg.setAttribute('position', {x:0, y:8, z:0.5});
+                }
+                else if (house.house.type == "#hauntedhouse"){
+                    item.setAttribute('scale', {x:0.2, y:0.2, z:0.2});
+                    text.setAttribute('position', {x:0, y:70, z:0.5});
+                    text.setAttribute('height', '120');
+                    text.setAttribute('width', '120');
+                    msg.setAttribute('position', {x:0, y:80, z:0.5});
+                    msg.setAttribute('height', '120');
+                    msg.setAttribute('width', '120');
+    
+                }
+                else if (house.house.type == "#redhouse"){
+                    item.setAttribute('rotation', {x:0, y:-90, z:0});
+                    // plane.setAttribute('position', {x:0, y:60, z:0});
+                    text.setAttribute('position', {x:0, y:20, z:0.5});
+                    text.setAttribute('height', '50');
+                    text.setAttribute('width', '50');
+                    text.setAttribute('rotation', {x:0, y:90, z:0});
+    
+                    msg.setAttribute('position', {x:0, y:25, z:0.5});
+                    msg.setAttribute('height', '50');
+                    msg.setAttribute('width', '50');
+                    msg.setAttribute('rotation', {x:0, y:90, z:0});
+    
+                }
+    
+                asset.appendChild(item);
+                item.appendChild(text);
+                item.appendChild(msg);
             }
-            else if (house.house.type == "#hauntedhouse"){
-                item.setAttribute('scale', {x:0.2, y:0.2, z:0.2});
-                // plane.setAttribute('position', {x:0, y:60, z:0});
-                text.setAttribute('position', {x:0, y:70, z:0.5});
-                text.setAttribute('height', '120');
-                text.setAttribute('width', '120');
-                msg.setAttribute('position', {x:0, y:80, z:0.5});
-                msg.setAttribute('height', '120');
-                msg.setAttribute('width', '120');
-
-            }
-            else if (house.house.type == "#redhouse"){
-                item.setAttribute('rotation', {x:0, y:-90, z:0});
-                // plane.setAttribute('position', {x:0, y:60, z:0});
-                text.setAttribute('position', {x:0, y:20, z:0.5});
-                text.setAttribute('height', '50');
-                text.setAttribute('width', '50');
-                text.setAttribute('rotation', {x:0, y:90, z:0});
-
-                msg.setAttribute('position', {x:0, y:15, z:0.5});
-                msg.setAttribute('height', '50');
-                msg.setAttribute('width', '50');
-                msg.setAttribute('rotation', {x:0, y:90, z:0});
-
-            }
-
-            else if (house.house.type == "#bluehouse"){
-                // item.setAttribute('position', {x:house.posX * 20, y:7, z:house.posY * 20});
-                // item.setAttribute('scale', {x:0.02, y:0.02, z:0.02});
-                // item.setAttribute('rotation', {x:0, y:90, z:0});
-                // plane.setAttribute('width', '1000');
-                // plane.setAttribute('height', '500');
-                // plane.setAttribute('position', {x:-800, y:600, z:300});
-                // plane.setAttribute('rotation', {x:0, y:90, z:0});
-                // text.setAttribute('height', '3000');
-                // text.setAttribute('width', '3000');
-                // text.setAttribute('rotation', {x:0, y:180, z:0});    
-            }
-            asset.appendChild(item);
-            // item.appendChild(plane);
-            item.appendChild(text);
-            item.appendChild(msg);
-        }
-        // posX -= 20;
+        })
     })
-})
+    
+}

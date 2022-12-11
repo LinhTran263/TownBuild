@@ -9,7 +9,7 @@ body{
 }
 
 p,label{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Lobster', cursive;
 }
 
 canvas{
@@ -46,4 +46,21 @@ canvas{
 
 #name, #msg{
     border-radius: 10px;
+}
+
+#submit-button{
+    font-family: 'Lobster', cursive;
+    font-size: 15pt;
+    width: 50%;
+    height: 5%;
+    border-radius: 10px;
+    align-self: center;
+    margin-bottom: 20px;
+    background: linear-gradient(225deg, #780206 0%, #061161 50%,#04619F 100%);
+    color: antiquewhite;
+}
+
+#submit-button:hover{
+    background: linear-gradient(150deg, #27d86c 0%, #26caf8 50%, #c625d0 100%);
+    color: #3d2814;
 }
