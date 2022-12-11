@@ -3,13 +3,22 @@ body{
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0; 
 }
 
+h1{
+    font-family: 'Lobster', cursive; 
+    font-size: 40pt;
+    margin: 20px;
+    color:black;
+}
+
 p,label{
     font-family: 'Lobster', cursive;
+    font-size: large;
 }
 
 canvas{

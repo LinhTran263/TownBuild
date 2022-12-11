@@ -63,7 +63,7 @@ function drawHouse(){
             msg.setAttribute('align', 'center');
             msg.setAttribute('height', '50');
             msg.setAttribute('width', '50');
-            msg.setAttribute('position', {x:0, y:30, z:0.5});
+            msg.setAttribute('position', {x:0, y:28, z:0.5});
             msg.id = house.house.type  + house.house.name +"msg";
             msg.setAttribute('font', 'exo2bold');
             msg.setAttribute('color', house.house.msgColor);
@@ -71,7 +71,7 @@ function drawHouse(){
             if (house.house.type == "#designhouse"){
                 let asset = document.getElementById("scene_asset");
                 let base = document.createElement('a-box');
-                base.id = house.house.type;
+                base.id = house.house.type + house.house.name;
                 base.setAttribute('position', {x:house.posX * 20 - 120, y:0.5, z:house.posY * 20 - 100});
                 base.setAttribute('height', 20);
                 base.setAttribute('width', 10);
@@ -149,7 +149,12 @@ function drawHouse(){
                     msg.setAttribute('height', '50');
                     msg.setAttribute('width', '50');
                     msg.setAttribute('rotation', {x:0, y:90, z:0});
-    
+                }
+
+                else if (house.house.type == "#guesthouse"){
+                    text.setAttribute('position', {x:0, y:29, z:0.5});
+                    msg.setAttribute('position', {x:0, y:32, z:0.5});
+
                 }
     
                 asset.appendChild(item);
