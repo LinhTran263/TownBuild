@@ -3,16 +3,12 @@ window.addEventListener('load',()=>{
     drawHouse();
     let cursor = document.getElementById("cur");
     cursor.addEventListener('mouseenter', function (evt) {
-        // console.log("plane");
-        // console.log(evt.detail.intersectedEl.id);
         if (evt.detail.intersectedEl.id != undefined) {
             let text = document.getElementById(evt.detail.intersectedEl.id + "text");
             text.setAttribute('opacity', 1);}
     });
 
     cursor.addEventListener('mouseleave', function (evt) {
-        // console.log("plane");
-        // console.log(evt.detail.intersectedEl.id);
         if (evt.detail.intersectedEl.id != undefined) {
             let text = document.getElementById(evt.detail.intersectedEl.id + "text");
             text.setAttribute('opacity', 0);}
@@ -81,14 +77,12 @@ function drawHouse(){
                 
                 let roof = document.createElement('a-cone');
                 roof.setAttribute('position', {x:0, y:15, z:0});
-                // roof.setAttribute('scale', {x:100, y:1000, z:1000})
                 roof.setAttribute('radius-bottom', 10);
                 roof.setAttribute('height', 10);
                 roof.setAttribute('color', house.house.roofColor);
     
                 let door = document.createElement('a-box');
                 door.setAttribute('position', {x:0, y:0, z:5});
-                // roof.setAttribute('scale', {x:100, y:1000, z:1000})
                 door.setAttribute('width', 3);
                 door.setAttribute('height', 10);
                 door.setAttribute('color', "#FFF");
@@ -139,7 +133,6 @@ function drawHouse(){
                 }
                 else if (house.house.type == "#redhouse"){
                     item.setAttribute('rotation', {x:0, y:-90, z:0});
-                    // plane.setAttribute('position', {x:0, y:60, z:0});
                     text.setAttribute('position', {x:0, y:20, z:0.5});
                     text.setAttribute('height', '50');
                     text.setAttribute('width', '50');
@@ -154,7 +147,6 @@ function drawHouse(){
                 else if (house.house.type == "#guesthouse"){
                     text.setAttribute('position', {x:0, y:29, z:0.5});
                     msg.setAttribute('position', {x:0, y:32, z:0.5});
-
                 }
     
                 asset.appendChild(item);
