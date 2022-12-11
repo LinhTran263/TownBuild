@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Lobster&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+    <title>Build your house!</title>
+</head>
+<body>
+    <div class="container" id="container1">
+        <section class="input-box">
+            <form class="inputspc">
+                <p>Enter your name: </p>
+                <input type="text" id="name" required>
+            </form>
+            <form class="inputspc">
+                <p>Enter your message: </p>
+                <input type="text" placeholder="name" id="msg" required>
+            </form>
+
+            <div class="inputspc">
+                <p>Choose the color for your message: </p>
+                <input type="color" placeholder="message" name="inputspc" id="colormsg">
+            </div>
+
+            <div class="inputspc" id="dropdown">
+                <label for="zodiac-select" style="margin-right: 10px;">Choose a house type:</label>
+    
+                <select name="pets" id="zodiac-select">
+                    <option value="default">--Please choose a house type--</option>
+                    <option value="#slumhouse">Slum House</option>
+                    <option value="#guesthouse">Guest house</option>
+                    <option value="#redhouse">Red House</option>
+                    <option value="#bluehouse">Blue House</option>
+                    <option value="#hauntedhouse">Haunted House</option>
+                    <option value="#designhouse">Design your house</option>
+                </select>
+            </div>
+
+            <div class="inputspc" id="colorbase">
+                <p>Choose the color of your house: </p>
+                <input type="color" name="inputspc" id="color-base">
+            </div>
+            <div class="inputspc" id="colorroof">
+                <p>Choose the color of the roof: </p>
+                <input type="color" id="color-roof">
+            </div>
+            <button type="submit" id="submit-button">Enter</button>
+        </section>
+        <div class="model" id="model1"></div>
+
+    </div>
+    
+</body>
+</html>

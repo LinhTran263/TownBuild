@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Lobster&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./intro.css">
+    <title>Welcome</title>
+</head>
+<body>
+    <div id="my-clouds">
+        <marquee behavior="scroll" direction="right" scrollamount="15">
+            <i class="fa fa-cloud" style="color:white;font-size:40px"></i>
+        </marquee>
+        <marquee behavior="scroll" direction="left" scrollamount="10">
+            <i class="fa fa-cloud" style="color:white;font-size:60px"></i>
+        </marquee>
+        <marquee behavior="scroll" direction="right" scrollamount="5">
+            <i class="fa fa-cloud" style="color:white;font-size:90px"></i>
+        </marquee>
+    </div> 
+    
+    <h1>Build the town.</h1>
+    <h1>Send your message.</h1>
+    <div class="buttons">
+        <button id="house">Make your house.</button>
+        <button id="town">Visit the town.</button>    
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById("house").onclick = function () {
+            location.href = "building/index.html";
+        };
+        document.getElementById("town").onclick = function () {
+            location.href = "building/public/index.html";
+        };
+
+    </script>
+    
+</body>
+</html>

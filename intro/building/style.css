@@ -1,0 +1,49 @@
+body{
+    background: linear-gradient(#52A7C1 60%, #B3F6D8 100%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0; 
+}
+
+p,label{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+canvas{
+    border-radius: 25px;
+}
+
+.model{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 2%;
+}
+
+.container{
+    border-radius: 50px;
+    background-color: antiquewhite;
+    width: 70%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputspc{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-box{
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#name, #msg{
+    border-radius: 10px;
+}
