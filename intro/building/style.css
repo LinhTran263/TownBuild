@@ -57,19 +57,20 @@ canvas{
     border-radius: 10px;
 }
 
-#submit-button{
+#submit-button, #main-button{
     font-family: 'Lobster', cursive;
     font-size: 15pt;
     width: 50%;
-    height: 5%;
+    height: 70%;
     border-radius: 10px;
+    margin: 10px;
     align-self: center;
     margin-bottom: 20px;
     background: linear-gradient(225deg, #780206 0%, #061161 50%,#04619F 100%);
     color: antiquewhite;
 }
 
-#submit-button:hover{
+#submit-button:hover, #main-button:hover{
     background: linear-gradient(150deg, #27d86c 0%, #26caf8 50%, #c625d0 100%);
     color: #3d2814;
 }

@@ -111,7 +111,7 @@ function drawHouse(){
                 let item = document.createElement('a-entity');
                 item.id = house.house.type + house.house.name;
                 item.setAttribute('gltf-model', house.house.type);
-                item.setAttribute('position', {x:house.posX * 20 - 100, y:0.5, z:house.posY * 20 - 80});
+                item.setAttribute('position', {x:house.posX * 20 - 80, y:0.5, z:house.posY * 20 - 80});
                 if (house.house.type =="#slumhouse"){
                     item.setAttribute('scale', {x:1.5, y:1.5, z:1.5});
                     text.setAttribute('position', {x:0, y:6, z:0.5});

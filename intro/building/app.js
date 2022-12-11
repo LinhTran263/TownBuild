@@ -52,6 +52,11 @@ window.addEventListener('load', ()=>{
         boxValue = document.getElementById("msg").value;
     })
 
+    let button_main = document.getElementById("main-button");
+    button_main.addEventListener("click", ()=>{
+        window.location.replace("../index.html");
+    })
+
     let button = document.getElementById("submit-button");
     button.addEventListener("click", ()=>{
         name_input = document.getElementById("name").value;
